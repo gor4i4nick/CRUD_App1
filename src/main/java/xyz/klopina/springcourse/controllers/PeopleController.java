@@ -21,11 +21,10 @@ public class PeopleController {
     @GetMapping
     public String index(Model model){
     // Получим всех людей из DAO и передадим их в представление
-
         model.addAttribute("people", personDAO.index());
         return "people/index";
     }
-    @GetMapping("/${id}")
+    @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model){
 //    получим одного человека из DAO и передадим на отображение в представление
         model.addAttribute("person", personDAO.show(id));
